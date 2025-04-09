@@ -3,11 +3,16 @@ import NoteContext from "./context/context";
 
 export default function Menu() {
   const products = useContext(NoteContext);
-  console.log("products -->", products);
+  // console.log("products -->", products);
+
+  const [cart, setCart] = useState([]);
+  console.log(cart)
 
   const handleClick = (param) => {
-    // param.preventDefault();
-    // console.log(param);
+    // console.log(param.id);
+    const item = [...cart,param]
+    setCart(item)
+    localStorage.setItem("cartItems",JSON.stringify(item))
   };
 
   return (
